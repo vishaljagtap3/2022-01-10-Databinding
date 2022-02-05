@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cities"
+            type="java.util.ArrayList&lt;String&gt;" />
+
+        <variable
+            name="user"
+            type="com.bitcode.databinding.User" />
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="imageId"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@{user.name}"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgUser"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="16dp"
+            android:src="@{user.imageId}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtName" />
+
+        <TextView
+            android:id="@+id/txtIsAdult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text='@{(2022 - user.birthYear) >= 18 ? "Adult" : "Not Adult"}'
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgUser" />
+
+        <TextView
+            android:id="@+id/txtResult"
+            marks="80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtIsAdult" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
